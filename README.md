@@ -3,8 +3,11 @@
 [![License](https://img.shields.io/badge/Licencia-CC_BY--SA_4.0-green)](LICENSE)
 [![Descarga MD](https://img.shields.io/badge/Descarga_guía-Español-yellow)](https://raw.githubusercontent.com/miquelnebotaragon/guia_basica_git/refs/heads/main/README.md)
 ![Guía básica Git para Github](./static/git_para_github.png)
-## Crear repositorio local y subirlo a GitHub
-### Flujo de trabajo
+## ⛏️ 1. Crear repositorio local y subirlo a GitHub
+### 📦 Flujo de trabajo
+
+0. Antes de empezar
+Git no crea por ti el repositorio remoto en GitHub. Deberás entonces abrir tu cuenta y crear manualmente tu repositorio sin README, License, .gitignore... Necesitamos un repositorio vacío.
 
 1. Configuración inicial
 
@@ -55,7 +58,7 @@ git remote add origin https://github.com/usuario/nombre_del_repo.git
 ```bash
 git push -u origin main
 ```
-➡️ El parámetro -u vincula tu rama local con la remota. En las próximas subidas, solo necesitarás escribir git push.
+➡️ El parámetro -u (*upstream*) vincula tu rama local con la remota y crea un vínculo permanente. Así pues, en las próximas subidas, solo necesitarás escribir `git push`.
 
 ## 🧩 Resumen
 ```bash
@@ -66,3 +69,66 @@ git branch -M main
 git remote add origin https://github.com/miquelnebotaragon/mi_primer_repo.git # Solicitará loguearse en GitHub
 git push -u origin main
 ```
+
+## 📤 2. Subir un único archivo modificado
+### 📦 Flujo de trabajo
+1. Ver los cambios pendientes
+```bash
+git status
+```
+➡️ Identifica los archivos modificados.
+
+![comando git status](./static/git_status.png)
+
+2. Añadir uno o varios archivos que hayan sufrido cambios en local
+```bash
+git add archivo1.md archivo2.md
+```
+
+3. Crear el "commit" correspondiente
+```bash
+git commit -m "Mejoras programadas"
+```
+
+4. Subir los archivos a GitHub
+```bash
+git push
+```
+
+## 🧩 Resumen
+```bash
+git add archivo
+git commit -m "Carga de archivo modificado"
+git push
+```
+
+## ⚙️ 3. Trabajar con clientes de sincronización de archivos
+### 📦 Flujo de trabajo
+¿Es posible utilizar Nextcloud, Drive, Dropbox... para sincronizar mis repositorios Git locales? ¡Sí!
+
+#### ☁️ ¿Qué ocurre con .git?
+* El directorio oculto ".git" contiene TODO el repositorio
+* Cuando el cliente actúa, se sincroniza como cualquier carpeta visible u oculta
+* Mantiene la configuración y la conexión con GitHub
+
+Por lo tanto...
+#### 💻 En otro de mis ordenadores, ¿qué ocurre?
+* No necesitas `git init`, ya está hecho y disponible en la carpeta oculta ".git"
+* Puedes trabajar directamente con:
+    ```bash
+    git status
+    git add archivo
+    git commit -m "Cambios hechos en mi segundo equipo"
+    git push
+    ```
+#### 🤔 ¿Es recomendable este flujo de trabajo?
+* ❌ Se pueden dar problemas de sincronización,
+* ❌ que desencadenará la corrupción del repositorio
+* ✅ Mejor que usar clientes de sincronización, utilizar GitHub como repositorio. Con un `git pull` descargaremos todos los archivos del directorio remoto a nuestro equipo.
+* 🥇 Regla de oro: Antes de tocar nada, `git pull` para la sincronización de archivos
+    ```bash
+    git pull
+    git add .
+    git commit -m "Cambios"
+    git push
+    ```
