@@ -50,7 +50,7 @@ git branch -M main
 ```bash
 git remote add origin https://github.com/usuario/nombre_del_repo.git
 ```
-❗ Atención: Antes de ejecutar este paso, debes haber creado el repositorio en la web de GitHub (vacío, sin README ni licencia) para obtener la correspondiente URL que habremos utilizado aquí.
+❗ Atención: Antes de ejecutar este paso, debes haber creado el repositorio en la web de GitHub (vacío, sin README ni licencia) para obtener la correspondiente URL que utilizaremos en este paso.
 
 ➡️ Estableces el puente entre tu PC y el servidor. El nombre "origin" es el estándar para referirse al servidor principal.
 
@@ -70,7 +70,7 @@ git remote add origin https://github.com/miquelnebotaragon/mi_primer_repo.git # 
 git push -u origin main
 ```
 
-## 📤 2. Subir un único archivo modificado
+## 📤 2. Sesiones futuras. Subir un único archivo modificado
 ### 📦 Flujo de trabajo
 1. Ver los cambios pendientes
 ```bash
@@ -104,11 +104,11 @@ git push
 
 ## ⚙️ 3. Trabajar con clientes de sincronización de archivos
 ### 📦 Flujo de trabajo
-¿Es posible utilizar Nextcloud, Drive, Dropbox... para sincronizar mis repositorios Git locales? ¡Sí!
+¿Es posible utilizar Nextcloud, Drive, Dropbox... para sincronizar mis repositorios Git locales? Respuesta corta, sí pero veamos por partes si es recomendable o no.
 
 #### ☁️ ¿Qué ocurre con .git?
 * El directorio oculto ".git" contiene TODO el repositorio
-* Cuando el cliente actúa, se sincroniza como cualquier carpeta visible u oculta
+* Cuando el cliente de sincronización de ficheros actúa (por ejemplo Nextcloud Desktop), se sincroniza todo el contenido del directorio como cualquier carpeta visible u oculta
 * Mantiene la configuración y la conexión con GitHub
 
 Por lo tanto...
@@ -121,14 +121,15 @@ Por lo tanto...
     git commit -m "Cambios hechos en mi segundo equipo"
     git push
     ```
-#### 🤔 ¿Es recomendable este flujo de trabajo?
+#### 🤔 Entonces, ¿es recomendable este flujo de trabajo?
+A efectos prácticos, si se tiene cuidado con algunas características de estos clientes de sincronización, sí que podemos usarlo, pero no es recomendable por los problemas que a continuación se muestran.
 * ❌ Se pueden dar problemas de sincronización,
-* ❌ que desencadenará la corrupción del repositorio
+* ❌ que desencadenarán la corrupción del repositorio
 * ✅ Mejor que usar clientes de sincronización, utilizar GitHub como repositorio. Con un `git pull` descargaremos todos los archivos del directorio remoto a nuestro equipo.
-* 🥇 Regla de oro: Antes de tocar nada, `git pull` para la sincronización de archivos
+* 🥇 Regla de oro: Antes de tocar nada, `git pull` para descargar los cambios del servidor.
     ```bash
-    git pull
-    git add .
-    git commit -m "Cambios"
-    git push
+    git pull    # 1. Trae lo último de GitHub a tu PC
+    git add .   # 2. Prepara tus nuevos cambios
+    git commit -m "Cambios" # 3. "Fotografía" del proyecto en este estado
+    git push    # 4. Sube todo lo actualizado
     ```
