@@ -1,7 +1,8 @@
 # 🚀 Guía básica Git para GitHub
-[![Website](https://img.shields.io/badge/Web-miquelnebot.eu-blue)](https://miquelnebot.eu)
-[![License](https://img.shields.io/badge/Licencia-CC_BY--SA_4.0-green)](LICENSE)
-[![Descarga MD](https://img.shields.io/badge/Descarga_guía-Español-yellow)](https://raw.githubusercontent.com/miquelnebotaragon/guia_basica_git/refs/heads/main/README.md)
+[![Website](https://img.shields.io/badge/Web-miquelnebot.eu-blue?logo=Moodle&logoColor=white)](https://miquelnebot.eu)
+[![License](https://img.shields.io/badge/Licencia-CC_BY--SA_4.0-green?logo=CreativeCommons&logoColor=white)](LICENSE)
+[![Descarga MD](https://img.shields.io/badge/Descarga_guía-Español-yellow?logo=Markdown&logoColor=white)](https://raw.githubusercontent.com/miquelnebotaragon/guia_basica_git/refs/heads/main/README.md)
+[![Infografía resumen](https://img.shields.io/badge/Descarga_guía-PDF-orange?logo=LibreOffice&logoColor=white)](./static/git_github_repositorios.pdf)
 ![Guía básica Git para Github](./static/git_para_github.png)
 ## ⛏️ 1. Crear repositorio local y subirlo a GitHub
 ### 📦 Flujo de trabajo
